@@ -1,0 +1,85 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body {
+			background-color: lightgoldenrodyellow;
+			font-size: 20px;
+		}
+		table {
+			width: 400px;
+			height: 100px;
+			margin:200px auto;
+		}
+		</style>
+	<body>
+		<table >
+			<tr>
+				<td align="center" colspan="2"><h2>新用户注册</h2></td>
+			</tr>
+			<tr>
+				<td>用户名：</td>
+				<td>
+					<input type="text" id="user" style="height:30px;width:200px;" placeholder="请输入用户名" onblur="myUser()">
+				</td>
+				<td>
+						<font color="yellow" id="user-tip"></font>
+				</td>
+			
+			</tr>
+			<tr>
+				<td>密码：</td>
+				<td><input type="password"id="mima" style="height:30px;width:200px;" placeholder="请输入至少8位包含字符的密码" onblur="myMima()"></td>
+			<td>
+						<font color="yellow" id="mima-tip"></font>
+					</td>	</tr>
+			<tr>
+				<td>	再次输入密码：</td>
+				<td><input type="password"id="remima" style="height:30px;width:200px;" placeholder="请输入与上相同密码" onkeyup="myRemima()></td>
+<td>
+						<font color="yellow" id="remima-tip"></font>
+					</td>			
+			</tr>
+		</table>
+		<script>
+					function myUser(){
+						var use = document.getElementById('user').value;
+						if(use == null || use == ""){
+							var tip1 = document.getElementById('user-tip');
+							tip1.innerHTML="*用户名不能为空";
+						}else{
+							var tip1 = document.getElementById('user-tip');
+							tip1.innerHTML="<font color='green'>*用户名正确</font>";
+						}
+					}
+					function myMima(){
+						var mima = document.getElementById('mima').value;
+						var tip2 = document.getElementById('mima-tip');
+						if(mima.length < 6 || mima  == ""){
+							tip2.innerHTML = "*密码最少8位"
+						}else{
+							tip2.innerHTML = "<font color='green'>*密码正确</font>"
+						}
+					}
+					function myRemima(){
+						var mima = document.getElementById('mima').value;
+						var remima = document.getElementById('remima').value;
+						var tip3 = document.getElementById('remima-tip');
+						if(mima == remima){
+							tip3.innerHTML="<font color='green'>*密码一致</font>";
+						}else{
+							tip3.innerHTML="*两次密码不相同";
+						}
+					}
+				</script>
+	</body>
+</html>
